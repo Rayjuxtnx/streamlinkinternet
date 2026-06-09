@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Streamlink Networks | Contact & Support — Telecom Service Desk</title>
+  <meta name="description" content="Contact Streamlink Networks for internet support, CCTV installations, network infrastructure, and subscription renewals. Official support portal for Machakos region.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0A0A0A;
+      color: #E5E7EB;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --orange: #FF6B00;
+      --orange-dark: #E05A00;
+      --orange-glow: rgba(255, 107, 0, 0.35);
+      --bg-deep: #0A0A0A;
+      --surface: #151515;
+      --surface-elevated: #1C1C1C;
+      --border-grey: #2B2B2B;
+      --text-primary: #E5E7EB;
+      --text-muted: #9CA3AF;
+      --success: #22c55e;
+      --error: #ef4444;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    h1, h2, h3 {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    /* Network Grid Overlay */
+    .network-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      background-image: 
+        linear-gradient(rgba(255,107,0,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,107,0,0.04) 1px, transparent 1px);
+      background-size: 50px 50px;
+      animation: gridMove 20s linear infinite;
+    }
+    @keyframes gridMove {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(50px, 50px); }
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      padding: 100px 0 80px;
+      background: linear-gradient(135deg, #0A0A0A 0%, #0F0F0F 100%);
+      border-bottom: 1px solid var(--border-grey);
+      overflow: hidden;
+    }
+    .hero-glow {
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 60%;
+      height: 80%;
+      background: radial-gradient(circle, rgba(255,107,0,0.15), transparent);
+      filter: blur(60px);
+      pointer-events: none;
+    }
+
+    /* Glass Cards */
+    .glass-card {
+      background: rgba(21, 21, 21, 0.8);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-grey);
+      border-radius: 32px;
+      transition: all 0.3s ease;
+    }
+
+    /* Form Styles */
+    .form-group {
+      position: relative;
+      margin-bottom: 24px;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 16px 16px 8px 16px;
+      background: var(--surface-elevated);
+      border: 1.5px solid var(--border-grey);
+      border-radius: 16px;
+      color: var(--text-primary);
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      outline: none;
+    }
+    .form-group label {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      transition: all 0.2s ease;
+      pointer-events: none;
+      font-size: 0.95rem;
+    }
+    .form-group textarea ~ label {
+      top: 20px;
+      transform: none;
+    }
+    .form-group.focused label, .form-group:focus-within label {
+      top: 8px;
+      transform: translateY(0);
+      font-size: 0.7rem;
+      color: var(--orange);
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.2);
+    }
+    .error-message {
+      font-size: 0.75rem;
+      color: var(--error);
+      margin-top: 6px;
+      display: none;
+    }
+    .error-message.show { display: block; }
+
+    /* Payment Card */
+    .payment-card {
+      background: linear-gradient(135deg, #1A1A1A, #0F0F0F);
+      border: 1px solid var(--orange);
+      border-radius: 28px;
+      padding: 28px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .till-number {
+      font-size: 48px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      background: linear-gradient(135deg, var(--orange), #FFB347);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* FAQ Accordion */
+    .faq-item {
+      background: var(--surface);
+      border: 1px solid var(--border-grey);
+      border-radius: 20px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 24px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+    .faq-question:hover { background: rgba(255,107,0,0.05); }
+    .faq-question i { transition: transform 0.3s; color: var(--orange); }
+    .faq-answer {
+      max-height: 0;
+      padding: 0 24px;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s;
+      color: var(--text-muted);
+      border-top: 0 solid var(--border-grey);
+    }
+    .faq-item.active .faq-answer {
+      max-height: 200px;
+      padding: 0 24px 20px 24px;
+      border-top-width: 1px;
+    }
+    .faq-item.active .faq-question i { transform: rotate(180deg); }
+
+    /* Buttons */
+    .btn-primary {
+      background: var(--orange);
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 60px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+    }
+    .btn-primary:hover {
+      background: var(--orange-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255,107,0,0.4);
+    }
+
+    .cta-banner {
+      background: linear-gradient(115deg, #FF6B00, #D95B00, #b14500);
+      border-radius: 32px;
+      padding: 60px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    /* Map Styles */
+    .map-container {
+      background: #1A1A1A;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(255,107,0,0.3);
+      margin: 20px 0;
+    }
+    .map-header {
+      padding: 12px 16px;
+      background: rgba(0,0,0,0.6);
+      border-bottom: 1px solid rgba(255,107,0,0.2);
+    }
+    .support-status {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    .status-led { animation: pulse 1.5s infinite; }
+
+    @media (max-width: 900px) {
+      .container { padding: 0 20px; }
+      .hero { padding: 60px 0 50px; }
+      .hero h1 { font-size: 36px !important; }
+      .grid-2 { grid-template-columns: 1fr; gap: 30px; }
+      .till-number { font-size: 32px; }
+      .cta-banner { padding: 40px 20px; }
+      .cta-banner h2 { font-size: 28px !important; }
+    }
+
+    @media (max-width: 480px) {
+      .support-status { flex-direction: column; align-items: flex-start; }
+      .map-header { flex-direction: column; gap: 8px; }
+      .map-header span { margin-left: 0 !important; display: block; margin-top: 5px; }
+    }
+
+    .flex-between { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .glow-text { color: var(--orange); }
+  </style>
+</head>
+<body>
+<div class="network-overlay"></div>
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-container container">
+    <div class="logo-area">
+      <div class="logo-icon">
+        <i class="fas fa-broadcast-tower"></i>
+        <div class="logo-pulse"></div>
+      </div>
+      <div>
+        <div class="company-name">Streamlink <span class="glow-text">Networks</span></div>
+        <div class="company-tagline"><i class="fas fa-shield-alt"></i> Enterprise ISP & Security · NOC Certified</div>
+      </div>
+    </div>
+    <button id="servicesMenuToggle" class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div id="servicesNav" class="nav-links">
+      <a href="index.html" class="nav-link"><i class="fas fa-home nav-icon"></i><span>Home</span><span class="nav-indicator"></span></a>
+      <a href="Services.html" class="nav-link"><i class="fas fa-globe nav-icon"></i><span>Services</span><span class="nav-indicator"></span></a>
+      <a href="Contact.html" class="nav-link active"><i class="fas fa-headset nav-icon"></i><span>Contact</span><span class="nav-indicator"></span></a>
+      <div class="nav-connector"><i class="fas fa-charging-station"></i> 24/7 Active</div>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(8, 8, 12, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 107, 0, 0.3);
+    transition: all 0.3s ease;
+  }
+  .navbar.scrolled {
+    background: rgba(5, 5, 8, 0.95);
+    border-bottom-color: rgba(255, 107, 0, 0.6);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  }
+  .nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 16px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+  }
+  .logo-area { display: flex; align-items: center; gap: 16px; }
+  .logo-icon {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #FF6B00, #E05A00);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 800;
+    color: white;
+    box-shadow: 0 0 20px rgba(255, 107, 0, 0.4);
+    transition: all 0.3s;
+  }
+  .logo-icon:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(255, 107, 0, 0.6); }
+  .logo-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 107, 0, 0.3);
+    border-radius: 16px;
+    transform: translate(-50%, -50%) scale(1);
+    animation: pulseRing 2s infinite;
+    pointer-events: none;
+  }
+  @keyframes pulseRing {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+    100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+  }
+  .company-name {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #FFFFFF, #FFB347);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .company-tagline { font-size: 0.7rem; color: #7A7A7A; display: flex; align-items: center; gap: 6px; }
+  .company-tagline i { font-size: 10px; color: #22c55e; }
+  .nav-links { display: flex; align-items: center; gap: 12px; }
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    color: #E5E7EB;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 60px;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  .nav-link:hover { color: #FF6B00; transform: translateY(-2px); }
+  .nav-link.active { color: #FF6B00; background: rgba(255, 107, 0, 0.1); }
+  .nav-connector {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    border-radius: 60px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #22c55e;
+    margin-left: 8px;
+  }
+  .menu-toggle {
+    display: none;
+    background: rgba(255, 107, 0, 0.15);
+    border: 1px solid rgba(255, 107, 0, 0.4);
+    border-radius: 12px;
+    padding: 10px 14px;
+    color: white;
+    cursor: pointer;
+  }
+  @media (max-width: 900px) {
+    .nav-container { padding: 12px 24px; flex-wrap: wrap; }
+    .menu-toggle { display: block; }
+    .nav-links { display: none; width: 100%; flex-direction: column; padding: 20px 0 10px; border-top: 1px solid rgba(255, 107, 0, 0.2); margin-top: 12px; }
+    .nav-links.active { display: flex; }
+    .nav-link { justify-content: center; }
+    .company-name { font-size: 1.2rem; }
+    .logo-icon { width: 40px; height: 40px; font-size: 18px; }
+  }
+</style>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="container">
+    <div style="max-width: 700px;">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap;">
+        <i class="fas fa-headset" style="color: var(--orange); font-size: 28px;"></i>
+        <span class="status-led" style="background: #22c55e; width: 10px; height: 10px; border-radius: 50%; display: inline-block;"></span>
+        <span style="color: var(--text-muted);">SUPPORT PORTAL • 24/7 ACTIVE</span>
+      </div>
+      <h1 style="font-size: 52px; margin-bottom: 20px;">Get in Touch with <span style="color: var(--orange);">Streamlink Networks</span></h1>
+      <p style="font-size: 18px; color: var(--text-muted); line-height: 1.5;">Have a question, need support, or looking to renew your subscription? Our team is standing by to help you stay connected.</p>
+    </div>
+  </div>
+</section>
+
+<div class="container" style="margin-top: -40px; position: relative; z-index: 2;">
+  <!-- TWO COLUMN CONTACT SECTION -->
+  <div class="grid-2">
+    <!-- LEFT: Contact Info Panel -->
+    <div class="glass-card" style="padding: 32px;">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px;">
+        <i class="fas fa-broadcast-tower" style="color: var(--orange); font-size: 32px;"></i>
+        <h2 style="font-size: 24px;">Streamlink Networks</h2>
+      </div>
+      <div style="margin: 28px 0;">
+        <p style="margin: 16px 0;"><i class="fas fa-phone-alt" style="color: var(--orange); width: 32px;"></i> <strong>Phone:</strong><br><a href="tel:0700167972" style="color: var(--text-primary); text-decoration: none; font-size: 18px;">0700 167 972</a></p>
+        <p style="margin: 16px 0;"><i class="fas fa-envelope" style="color: var(--orange); width: 32px;"></i> <strong>Email:</strong><br><a href="mailto:streamlinktechnologies@gmail.com" style="color: var(--text-primary); text-decoration: none;">streamlinktechnologies@gmail.com</a></p>
+        <p style="margin: 16px 0;"><i class="fas fa-map-marker-alt" style="color: var(--orange); width: 32px;"></i> <strong>Location:</strong><br>Katoloni Town, Machakos, Kenya</p>
+      </div>
+
+      <!-- Century Park Map Section -->
+      <div class="map-container">
+        <div class="map-header">
+          <i class="fas fa-map-marker-alt" style="color: #FF6B00; margin-right: 8px;"></i>
+          <strong>Century Park, Machakos</strong>
+          <span style="font-size: 11px; color: #9CA3AF; margin-left: 8px;">📍 1.5171° S, 37.2634° E</span>
+        </div>
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63808.05220588059!2d37.21867421738282!3d-1.5171206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f871e6b56519f%3A0x6a7d0b1e3a1e5b0c!2sCentury%20Park%2C%20Machakos!5e0!3m2!1sen!2ske!4v1700000000000!5m2!1sen!2ske" 
+          width="100%" 
+          height="200" 
+          style="border: 0; display: block;" 
+          allowfullscreen="" 
+          loading="lazy">
+        </iframe>
+      </div>
+
+      <!-- Support Status -->
+      <div class="support-status">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span class="status-led" style="background: #22c55e; width: 10px; height: 10px; border-radius: 50%; display: inline-block;"></span>
+          <span style="font-size: 13px;">Active support • Response within 1h</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <i class="fas fa-location-dot" style="color: #FF6B00; font-size: 12px;"></i>
+          <span style="font-size: 11px; color: #9CA3AF;">Century Park | -1.5171°, 37.2634°</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Contact Form -->
+    <div class="glass-card" id="contactFormSection" style="padding: 32px;">
+      <h2 style="font-size: 28px; margin-bottom: 8px;">Send a <span style="color: var(--orange);">Request</span></h2>
+      <p style="color: var(--text-muted); margin-bottom: 28px;">Our engineers will respond within 24 hours.</p>
+      <form id="contactForm">
+        <div class="form-group" id="nameGroup">
+          <input type="text" id="fullName" required>
+          <label for="fullName">Full Name *</label>
+          <div class="error-message" id="nameError">Please enter your full name</div>
+        </div>
+        <div class="form-group" id="phoneGroup">
+          <input type="tel" id="phone" required>
+          <label for="phone">Phone Number *</label>
+          <div class="error-message" id="phoneError">Valid phone number required (10-13 digits)</div>
+        </div>
+        <div class="form-group" id="emailGroup">
+          <input type="email" id="email" required>
+          <label for="email">Email Address *</label>
+          <div class="error-message" id="emailError">Valid email address required</div>
+        </div>
+        <div class="form-group">
+          <select id="selectedPackage" style="padding: 16px 16px 8px 16px;">
+            <option value="" disabled selected>Select Package</option>
+            <option value="5Mbps">5Mbps</option>
+            <option value="7Mbps">7Mbps</option>
+            <option value="10Mbps">10Mbps</option>
+            <option value="12Mbps">12Mbps</option>
+            <option value="15Mbps">15Mbps</option>
+            <option value="20Mbps">20Mbps</option>
+          </select>
+          <label for="selectedPackage">Selected Package</label>
+        </div>
+        <div class="form-group">
+          <select id="service" style="padding: 16px 16px 8px 16px;">
+            <option value="" disabled selected>Select Service</option>
+            <option value="Home Internet">Home Internet</option>
+            <option value="Business Internet">Business Internet</option>
+            <option value="CCTV Installation">CCTV Installation</option>
+            <option value="Network Infrastructure">Network Infrastructure</option>
+            <option value="General Support">General Support</option>
+          </select>
+          <label for="service">Service Needed</label>
+        </div>
+        <div class="form-group">
+          <textarea id="message" rows="4" style="resize: none;"></textarea>
+          <label for="message">Message (optional)</label>
+        </div>
+        <button type="submit" class="btn-primary" id="submitBtn" style="width: 100%; justify-content: center;"><i class="fas fa-paper-plane"></i> Submit Request</button>
+        <p id="submitMessage" style="margin-top:16px; color:#A3E635; display:none; font-weight:600;"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- PAYMENT & SUBSCRIPTION RENEWAL SECTION -->
+  <div style="margin: 80px 0;">
+    <div class="payment-card">
+      <i class="fas fa-shield-alt" style="font-size: 48px; color: var(--orange); margin-bottom: 16px;"></i>
+      <h2 style="font-size: 32px;">Internet Subscription <span style="color: var(--orange);">Renewal</span></h2>
+      <p style="color: var(--text-muted); max-width: 600px; margin: 16px auto;">Renew your subscription quickly using our official Till Number. After completing your payment, please contact your assigned field technician or call the main office for immediate activation and confirmation.</p>
+      <div style="background: #0A0A0A; padding: 20px; border-radius: 24px; margin: 24px auto; max-width: 320px; border: 1px solid var(--orange);">
+        <i class="fas fa-credit-card" style="color: var(--orange); margin-right: 8px;"></i> M-PESA Till Number
+        <div class="till-number">6757211</div>
+        <div style="font-size: 12px; margin-top: 8px;"><i class="fas fa-lock"></i> Secure transaction • Instant confirmation</div>
+      </div>
+      <div class="flex-between" style="justify-content: center; gap: 24px;">
+        <span><i class="fas fa-check-circle" style="color: #22c55e;"></i> Same-day activation</span>
+        <span><i class="fas fa-headset"></i> Support 24/7</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ ACCORDION SECTION -->
+  <div style="margin: 80px 0;">
+    <h2 style="font-size: 36px; text-align: center; margin-bottom: 48px;">Frequently Asked <span style="color: var(--orange);">Questions</span></h2>
+    <div id="faqContainer">
+      <div class="faq-item">
+        <div class="faq-question"><span>How long does installation take?</span><i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer">Installation typically takes 24–72 hours after verification and payment confirmation. Our technicians will coordinate with you directly.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question"><span>Do you offer business internet?</span><i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer">Yes, we provide dedicated enterprise links with guaranteed 99.9% uptime, symmetrical bandwidth, and SLAs for business clients.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question"><span>Do you install CCTV systems?</span><i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer">Absolutely. We install AI-powered HD surveillance solutions for homes and offices, including remote mobile access and cloud backup.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question"><span>Can I upgrade my package?</span><i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer">Yes, upgrades can be done without downtime. Contact support and we'll adjust your plan within hours.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINAL CTA SECTION -->
+  <div style="margin-bottom: 80px;">
+    <div class="cta-banner">
+      <div style="position: relative; z-index: 2;">
+        <i class="fas fa-charging-station" style="font-size: 56px; color: white; margin-bottom: 20px; display: inline-block;"></i>
+        <h2 style="font-size: 42px; color: white;">Let's Build Your Connection Together</h2>
+        <p style="color: #FFF3E0; margin: 20px auto; max-width: 500px;">Talk to our network specialists today and get a customized solution.</p>
+        <button id="ctaScrollBtn" type="button" class="btn-primary" style="background: white; color: var(--orange); font-weight: 800; margin-top: 16px;">Get Connected Today <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer style="background: #050507; padding: 40px 0; border-top: 1px solid #2B2B2B;">
+  <div class="container">
+    <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+      <div><i class="fas fa-broadcast-tower" style="color: var(--orange);"></i> Streamlink Networks:Enterprise ISP & Security</div>
+      <div><i class="fas fa-phone"></i> 0700 167 972 | <i class="fas fa-envelope"></i> streamlinktechnologies@gmail.com</div>
+      <div>© 2025  Katoloni Town, Machakos</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    // Form Validation
+    const form = document.getElementById('contactForm');
+    const nameInput = document.getElementById('fullName');
+    const phoneInput = document.getElementById('phone');
+    const emailInput = document.getElementById('email');
+    const submitBtn = document.getElementById('submitBtn');
+
+    // Floating labels
+    document.querySelectorAll('.form-group input, .form-group select, .form-group textarea').forEach(field => {
+      field.addEventListener('focus', function() { this.parentElement.classList.add('focused'); });
+      field.addEventListener('blur', function() { if(this.value === '') this.parentElement.classList.remove('focused'); });
+      if(field.value !== '') field.parentElement.classList.add('focused');
+    });
+
+    const selectedPackageInput = document.getElementById('selectedPackage');
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedPackageParam = urlParams.get('selectedPackage') || urlParams.get('package');
+    const selectedServiceParam = urlParams.get('selectedService');
+
+    if ((selectedPackageParam || selectedServiceParam) && selectedPackageInput) {
+      if (selectedPackageParam) {
+        selectedPackageInput.value = selectedPackageParam;
+      } else {
+        selectedPackageInput.value = '';
+      }
+      selectedPackageInput.parentElement.classList.add('focused');
+
+      const serviceSelect = document.getElementById('service');
+      if (serviceSelect) {
+        const findOption = (value) => Array.from(serviceSelect.options).find(opt => opt.value.toLowerCase().includes(value.toLowerCase()));
+        if (selectedPackageParam && serviceSelect.querySelector(`option[value="Home Internet"]`)) {
+          serviceSelect.value = 'Home Internet';
+            serviceSelect.value = normalized;
+          } else {
+            const matchOption = findOption(normalized) || findOption('business internet');
+            if (matchOption) serviceSelect.value = matchOption.value;
+          }
+        }
+      }
+
+      const messageField = document.getElementById('message');
+      if (messageField && messageField.value.trim() === '') {
+        messageField.value = selectedPackageParam
+          ? `I'm interested in the ${selectedPackageParam} package. Please contact me with details.`
+          : `I'm requesting a quote for ${selectedServiceParam}. Please contact me with details.`;
+        messageField.parentElement.classList.add('focused');
+      }
+
+      const formSection = document.querySelector('.glass-card form');
+      if (formSection) formSection.closest('.glass-card')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function showError(id, show) {
+      const errDiv = document.getElementById(id);
+      if(errDiv) errDiv.classList.toggle('show', show);
+    }
+
+    function validateForm() {
+      let isValid = true;
+      const nameVal = nameInput.value.trim();
+      const phoneVal = phoneInput.value.trim();
+      const emailVal = emailInput.value.trim();
+      const phoneRegex = /^[0-9]{10,13}$/;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!nameVal) { showError('nameError', true); isValid = false; } else { showError('nameError', false); }
+      if (!phoneVal || !phoneRegex.test(phoneVal.replace(/\+/g, ''))) { showError('phoneError', true); isValid = false; } else { showError('phoneError', false); }
+      if (!emailVal || !emailRegex.test(emailVal)) { showError('emailError', true); isValid = false; } else { showError('emailError', false); }
+      return isValid;
+    }
+
+    const submitMessage = document.getElementById('submitMessage');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!validateForm()) return;
+
+      const nameVal = nameInput.value.trim();
+      const phoneVal = phoneInput.value.trim();
+      const emailVal = emailInput.value.trim();
+      const serviceVal = document.getElementById('service')?.value || 'General inquiry';
+      const selectedPackageVal = selectedPackageInput?.value || 'None';
+      const messageVal = document.getElementById('message')?.value.trim() || '';
+
+      const subject = `Streamlink Request from ${nameVal}`;
+      const bodyLines = [
+        `Name: ${nameVal}`,
+        `Phone: ${phoneVal}`,
+        `Email: ${emailVal}`,
+        `Service: ${serviceVal}`,
+        `Selected Package: ${selectedPackageVal}`,
+        '',
+        `Message:`,
+        messageVal
+      ];
+      const mailtoUrl = `mailto:streamlinktechnologies@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Opening email client...';
+      submitBtn.disabled = true;
+      if (submitMessage) {
+        submitMessage.textContent = 'Opening your email app now. If nothing opens, please email streamlinktechnologies@gmail.com directly.';
+        submitMessage.style.display = 'block';
+      }
+
+      window.location.href = mailtoUrl;
+
+      setTimeout(() => {
+        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Request';
+        submitBtn.style.background = '#FF6B00';
+        submitBtn.disabled = false;
+      }, 2000);
+
+      if (submitMessage) {
+        setTimeout(() => {
+          submitMessage.style.display = 'none';
+        }, 5000);
+      }
+    });
+
+    // FAQ Accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      const questionDiv = item.querySelector('.faq-question');
+      questionDiv.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        faqItems.forEach(i => i.classList.remove('active'));
+        if (!isActive) item.classList.add('active');
+      });
+    });
+
+    // Scroll to form
+    document.getElementById('ctaScrollBtn')?.addEventListener('click', () => {
+      const contactSection = document.getElementById('contactFormSection');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        const firstInput = contactSection.querySelector('input, select, textarea');
+        firstInput?.focus();
+      }
+    });
+
+    // Scroll effects
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    });
+
+    // Mobile menu
+    const menuToggle = document.getElementById('servicesMenuToggle');
+    const navLinks = document.getElementById('servicesNav');
+    if (menuToggle) {
+      menuToggle.addEventListener('click', function() {
+        const expanded = this.getAttribute('aria-expanded') === 'true' ? false : true;
+        this.setAttribute('aria-expanded', expanded);
+        navLinks.classList.toggle('active');
+      });
+    }
+
+    // Fade animations
+    const fadeElements = document.querySelectorAll('.glass-card, .payment-card, .faq-item');
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+    fadeElements.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      fadeObserver.observe(el);
+    });
+  })();
+</script>
+</body>
+</html>
