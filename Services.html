@@ -852,6 +852,15 @@
         const open = servicesNav.classList.toggle('active');
         servicesMenuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
+
+      // Close menu when a link is clicked
+      const navItems = servicesNav.querySelectorAll('.nav-link');
+      navItems.forEach(link => {
+        link.addEventListener('click', function() {
+          servicesNav.classList.remove('active');
+          servicesMenuToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
     }
 
     // Scroll detection for navbar styling
