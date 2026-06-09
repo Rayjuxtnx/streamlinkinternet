@@ -761,11 +761,9 @@
         const findOption = (value) => Array.from(serviceSelect.options).find(opt => opt.value.toLowerCase().includes(value.toLowerCase()));
         if (selectedPackageParam && serviceSelect.querySelector(`option[value="Home Internet"]`)) {
           serviceSelect.value = 'Home Internet';
-            serviceSelect.value = normalized;
-          } else {
-            const matchOption = findOption(normalized) || findOption('business internet');
-            if (matchOption) serviceSelect.value = matchOption.value;
-          }
+        } else if (selectedServiceParam) {
+          const matchOption = findOption(selectedServiceParam) || findOption('business internet');
+          if (matchOption) serviceSelect.value = matchOption.value;
         }
       }
 
