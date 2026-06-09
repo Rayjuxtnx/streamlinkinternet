@@ -336,66 +336,59 @@
     <div class="logo-area">
       <div class="logo-icon">
         <i class="fas fa-broadcast-tower"></i>
-        <div class="logo-pulse"></div>
       </div>
       <div>
         <div class="company-name">Streamlink <span class="glow-text">Networks</span></div>
-        <div class="company-tagline"><i class="fas fa-shield-alt"></i> Connecting You Beyond Limits.</div>
+        <div class="company-tagline"><i class="fas fa-shield-alt"></i> Connecting Beyond Limits</div>
       </div>
     </div>
     <button id="servicesMenuToggle" class="menu-toggle" aria-controls="servicesNav" aria-expanded="false" aria-label="Toggle menu">
       <i class="fas fa-bars"></i>
     </button>
     <div id="servicesNav" class="nav-links">
-      <a href="index.html" class="nav-link">
-        <i class="fas fa-home nav-icon"></i>
+      <a href="index.html" class="nav-link active">
         <span>Home</span>
-        <span class="nav-indicator"></span>
       </a>
       <a href="Services.html" class="nav-link">
-        <i class="fas fa-globe nav-icon"></i>
         <span>Services</span>
-        <span class="nav-indicator"></span>
       </a>
       <a href="contact.html" class="nav-link">
-        <i class="fas fa-headset nav-icon"></i>
         <span>Contact</span>
-        <span class="nav-indicator"></span>
       </a>
-      <div class="nav-connector">
-        <i class="fas fa-charging-station"></i> 24/7 Active
-      </div>
+    </div>
+    <div class="nav-actions">
+      <a href="contact.html" class="btn-connect">Get Connected <i class="fas fa-arrow-right"></i></a>
     </div>
   </div>
 </nav>
 
 <style>
-  /* Enhanced Navbar Styles */
+  /* Professional Navbar Styles */
   .navbar {
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(8, 8, 12, 0.85);
+    background: rgba(10, 10, 10, 0.95);
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 107, 0, 0.3);
+    border-bottom: 1px solid rgba(255, 107, 0, 0.2);
     transition: all 0.3s ease;
   }
 
   .navbar.scrolled {
-    background: rgba(5, 5, 8, 0.95);
-    border-bottom-color: rgba(255, 107, 0, 0.6);
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    background: rgba(5, 5, 8, 0.98);
+    border-bottom-color: rgba(255, 107, 0, 0.4);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   }
 
   .nav-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 16px 40px;
+    padding: 12px 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 30px;
+    gap: 40px;
   }
 
   /* Logo Area */
@@ -403,57 +396,28 @@
     display: flex;
     align-items: center;
     gap: 16px;
+    min-width: 250px;
   }
 
   .logo-icon {
-    position: relative;
-    width: 50px;
-    height: 50px;
+    width: 44px;
+    height: 44px;
     background: linear-gradient(135deg, #FF6B00, #E05A00);
-    border-radius: 16px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 24px;
-    font-weight: 800;
     color: white;
-    box-shadow: 0 0 20px rgba(255, 107, 0, 0.4);
-    transition: all 0.3s;
-  }
-
-  .logo-icon:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 30px rgba(255, 107, 0, 0.6);
-  }
-
-  .logo-pulse {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 107, 0, 0.3);
-    border-radius: 16px;
-    transform: translate(-50%, -50%) scale(1);
-    animation: pulseRing 2s infinite;
-    pointer-events: none;
-  }
-
-  @keyframes pulseRing {
-    0% {
-      transform: translate(-50%, -50%) scale(1);
-      opacity: 0.6;
-    }
-    100% {
-      transform: translate(-50%, -50%) scale(1.5);
-      opacity: 0;
-    }
+    font-weight: 800;
+    box-shadow: 0 0 15px rgba(255, 107, 0, 0.3);
+    flex-shrink: 0;
   }
 
   .company-name {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 800;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
     background: linear-gradient(135deg, #FFFFFF, #FFB347);
     -webkit-background-clip: text;
     background-clip: text;
@@ -468,12 +432,13 @@
   }
 
   .company-tagline {
-    font-size: 0.7rem;
-    color: #7A7A7A;
+    font-size: 0.65rem;
+    color: #999;
     letter-spacing: 0.5px;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 4px;
+    margin-top: 2px;
   }
 
   .company-tagline i {
@@ -485,69 +450,26 @@
   .nav-links {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
+    flex: 1;
   }
 
   .nav-link {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 10px 20px;
-    color: #E5E7EB;
+    padding: 8px 18px;
+    color: #BBBBC0;
     text-decoration: none;
     font-weight: 500;
     font-size: 0.95rem;
-    border-radius: 60px;
-    transition: all 0.3s ease;
+    border-radius: 8px;
+    transition: all 0.2s ease;
     position: relative;
-    overflow: hidden;
-  }
-
-  .nav-link::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(255, 107, 0, 0.15), rgba(255, 107, 0, 0.05));
-    border-radius: 60px;
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-
-  .nav-link:hover::before {
-    opacity: 1;
   }
 
   .nav-link:hover {
     color: #FF6B00;
-    transform: translateY(-2px);
-  }
-
-  .nav-icon {
-    font-size: 1rem;
-    transition: transform 0.2s;
-  }
-
-  .nav-link:hover .nav-icon {
-    transform: translateY(-2px);
-  }
-
-  .nav-indicator {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #FF6B00, #FFB347);
-    border-radius: 2px;
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
-  }
-
-  .nav-link:hover .nav-indicator {
-    width: 70%;
+    background: rgba(255, 107, 0, 0.08);
   }
 
   .nav-link.active {
@@ -555,73 +477,102 @@
     background: rgba(255, 107, 0, 0.1);
   }
 
-  .nav-link.active .nav-indicator {
-    width: 70%;
-  }
-
-  /* Status Connector */
-  .nav-connector {
+  /* Action Buttons */
+  .nav-actions {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 8px 18px;
-    background: rgba(34, 197, 94, 0.1);
-    border: 1px solid rgba(34, 197, 94, 0.3);
-    border-radius: 60px;
-    font-size: 0.75rem;
+    gap: 16px;
+    min-width: max-content;
+  }
+
+  .btn-connect {
+    padding: 10px 24px;
+    background: #FF6B00;
+    color: white;
+    border: none;
+    border-radius: 8px;
     font-weight: 600;
-    color: #22c55e;
-    letter-spacing: 0.5px;
-    margin-left: 8px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3);
   }
 
-  .nav-connector i {
-    font-size: 12px;
-    animation: pulse 1.5s infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
+  .btn-connect:hover {
+    background: #E05A00;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 107, 0, 0.4);
   }
 
   /* Mobile Menu Toggle */
   .menu-toggle {
     display: none;
-    background: rgba(255, 107, 0, 0.15);
+    background: transparent;
     border: 1px solid rgba(255, 107, 0, 0.4);
-    border-radius: 12px;
-    padding: 10px 14px;
-    color: white;
+    border-radius: 8px;
+    padding: 10px 12px;
+    color: #E5E7EB;
     cursor: pointer;
-    transition: all 0.3s;
+    font-size: 20px;
+    transition: all 0.2s;
   }
 
   .menu-toggle:hover {
-    background: rgba(255, 107, 0, 0.3);
-    transform: scale(1.02);
+    background: rgba(255, 107, 0, 0.15);
+    border-color: #FF6B00;
   }
 
   /* Responsive Design */
-  @media (max-width: 900px) {
+  @media (max-width: 1024px) {
     .nav-container {
+      gap: 24px;
       padding: 12px 24px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .nav-container {
       flex-wrap: wrap;
+      padding: 12px 20px;
     }
 
     .menu-toggle {
       display: block;
+      order: 3;
+    }
+
+    .logo-area {
+      min-width: auto;
+      gap: 12px;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+    }
+
+    .company-name {
+      font-size: 1.1rem;
+    }
+
+    .company-tagline {
+      display: none;
     }
 
     .nav-links {
       display: none;
       width: 100%;
       flex-direction: column;
-      align-items: stretch;
-      gap: 8px;
-      padding: 20px 0 10px;
-      border-top: 1px solid rgba(255, 107, 0, 0.2);
+      gap: 4px;
+      padding: 16px 0;
+      border-top: 1px solid rgba(255, 107, 0, 0.15);
       margin-top: 12px;
+      order: 4;
     }
 
     .nav-links.active {
@@ -630,78 +581,22 @@
 
     .nav-link {
       justify-content: center;
-      padding: 12px 20px;
+      padding: 10px 16px;
+      width: 100%;
     }
 
-    .nav-connector {
+    .nav-actions {
+      order: 5;
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    .btn-connect {
+      width: 100%;
       justify-content: center;
-      margin: 8px 0 0;
-    }
-
-    .company-name {
-      font-size: 1.2rem;
-    }
-
-    .company-tagline {
-      font-size: 0.6rem;
-    }
-
-    .logo-icon {
-      width: 40px;
-      height: 40px;
-      font-size: 18px;
-    }
-  }
-
-  /* Scroll shadow effect */
-  @media (min-width: 901px) {
-    .navbar.scrolled .nav-link {
-      padding: 8px 18px;
     }
   }
 </style>
-
-<style>
-  .nav-links {
-    display: flex;
-    gap: 48px;
-    align-items: center;
-  }
-  .nav-link {
-    color: #E5E7EB;
-    text-decoration: none;
-    font-weight: 500;
-    transition: 0.2s;
-    position: relative;
-  }
-  .nav-link:hover {
-    color: var(--orange, #FF6B00);
-  }
-  .nav-link.active {
-    color: var(--orange, #FF6B00);
-  }
-  .nav-link.active::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: var(--orange, #FF6B00);
-    border-radius: 2px;
-  }
-</style>
-    <div class="search-wrapper">
-      <div class="search-container">
-        <i class="fas fa-search search-icon"></i>
-        <input type="text" class="search-input" placeholder="Search services, packages, coverage areas...">
-        <i class="fas fa-microphone voice-icon"></i>
-      </div>
-      <a href="#" class="btn-portal"><i class="fas fa-user-circle"></i> Portal</a>
-      <a href="contact.html" class="btn-connect">Get Connected <i class="fas fa-arrow-right"></i></a>
-    </div>
-  </div>
-</nav>
 
 <section id="home" class="hero">
   <canvas id="heroCanvas"></canvas>
